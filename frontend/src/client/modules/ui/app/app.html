@@ -1,0 +1,115 @@
+<template>
+    <ui-header nickname={nickname}></ui-header>
+
+    <div class="body">
+        <template if:true={session}>
+            <!-- Unauthenticated -->
+            <template if:false={isAuthenticated}>
+                <template if:true={isRegistrationPhase}>
+                    <ui-registration-form
+                        onregistered={handleRegistered}
+                    ></ui-registration-form>
+                </template>
+                <template if:false={isRegistrationPhase}>
+                    <h1>Sorry, registrations are closed.</h1>
+                </template>
+            </template>
+
+            <!-- Authenticated -->
+            <template if:true={isAuthenticated}>
+                <!-- Registration -->
+                <template if:true={isRegistrationPhase}>
+                    <h1>Waiting for host to start game...</h1>
+                    <ui-spinner></ui-spinner>
+                </template>
+
+                <!-- Pre-question -->
+                <template if:true={isPreQuestionPhase}>
+                    <h1>Wait for question...</h1>
+                    <ui-spinner></ui-spinner>
+                </template>
+
+                <!-- Question -->
+                <template if:true={isQuestionPhase}>
+                    <!-- Not yet answered -->
+                    <template if:false={lastAnswer}>
+                        <ui-question
+                            question={session.question}
+                            onanswer={handleAnswer}
+                        ></ui-question>
+                    </template>
+
+                    <!-- Answered -->
+                    <template if:true={lastAnswer}>
+                        <h1>
+                            You answered
+                            <span data-answer={lastAnswer}>{lastAnswer}</span>
+                        </h1>
+                        <template if:true={answerSaved}>
+                            <h1>Collecting answers from other players...</h1>
+                        </template>
+                        <template if:false={answerSaved}>
+                            <h1>Saving answer...</h1>
+                        </template>
+                        <ui-spinner></ui-spinner>
+                    </template>
+                </template>
+
+                <!-- Question Results -->
+                <template if:true={isQuestionResultsPhase}>
+                    <!-- Answered -->
+                    <template if:true={lastAnswer}>
+                        <h1>
+                            You answered
+                            <span data-answer={lastAnswer}>{lastAnswer}</span>
+                        </h1>
+                        <template if:true={answerSaved}>
+                            <template if:true={isCorrectAnswer}>
+                                <h1>Well done, that's correct!</h1>
+                            </template>
+                            <template if:false={isCorrectAnswer}>
+                                <h1>
+                                    The correct answer was
+                                    <span data-answer={session.correctAnswer}
+                                        >{session.correctAnswer}</span
+                                    >
+                                </h1>
+                            </template>
+                        </template>
+                        <template if:false={answerSaved}>
+                            <h1>You didn't answer in time.</h1>
+                        </template>
+                    </template>
+                    <!-- Did not answer -->
+                    <template if:false={lastAnswer}>
+                        <h1>You didn't answer in time.</h1>
+                    </template>
+                </template>
+
+                <!-- Game Results -->
+                <template if:true={isGameResultsPhase}>
+                    <ui-player-stats player-id={playerId}></ui-player-stats>
+                </template>
+            </template>
+        </template>
+
+        <!-- Errors -->
+        <template if:true={errorMessage}>
+            <h1 class="error">{errorMessage}</h1>
+        </template>
+    </div>
+    <!-- End body -->
+
+    <!-- Footer with score and rank -->
+    <template if:true={showFooter}>
+        <ui-footer leaderboard={playerLeaderboard}></ui-footer>
+    </template>
+    <!-- Credits -->
+    <div if:false={showFooter} class="credits">
+        Quiz App by <a href="https://twitter.com/PhilippeOzil">@PhilippeOzil</a>
+        &nbsp;-&nbsp;Player app v{PLAYER_APP_VERSION}&nbsp;-&nbsp;
+        <a href="https://github.com/fostive/quiz-host-app"
+            >Help, issues and feedback</a
+        >
+    </div>
+</template>

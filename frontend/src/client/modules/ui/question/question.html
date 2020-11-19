@@ -1,0 +1,29 @@
+<template>
+    <div class="question-label">{question.label}</div>
+    <div class="answers">
+        <div class="answer">
+            <button onclick={handleAnswerClick} data-answer="A">
+                <div class="letter">A</div>
+                <div class="label">{question.answerA}</div>
+            </button>
+        </div>
+        <div class="answer">
+            <button onclick={handleAnswerClick} data-answer="B">
+                <div class="letter">B</div>
+                <div class="label">{question.answerB}</div>
+            </button>
+        </div>
+        <div class="answer">
+            <button onclick={handleAnswerClick} data-answer="C">
+                <div class="letter">C</div>
+                <div class="label">{question.answerC}</div>
+            </button>
+        </div>
+        <div class="answer">
+            <button onclick={handleAnswerClick} data-answer="D">
+                <div class="letter">D</div>
+                <div class="label">{question.answerD}</div>
+            </button>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,17 @@
+:host {
+    width: 100%;
+}
+
+footer {
+    padding: 1rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    color: #ffffff;
+    background: #002169;
+    box-shadow: 0 -4px 3px rgba(0, 33, 105, 0.5);
+}
+
+div {
+    font-size: larger;
+}

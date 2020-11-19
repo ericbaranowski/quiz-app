@@ -1,0 +1,59 @@
+:host {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.question-label {
+    font-size: 1.5rem;
+    margin: 1rem 1rem 0;
+}
+
+.answers {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.answer {
+    width: 50%;
+    display: flex;
+}
+
+.answer button {
+    width: 100%;
+    border-radius: 0.5rem;
+    border-width: 0;
+    color: #ffffff;
+    margin: 1rem;
+}
+
+.answer button[data-answer='A'] {
+    background-color: #1589ee;
+}
+
+.answer button[data-answer='B'] {
+    background-color: #ff9e2c;
+}
+
+.answer button[data-answer='C'] {
+    background-color: #d4504c;
+}
+
+.answer button[data-answer='D'] {
+    background-color: #04844b;
+}
+
+.answer .letter {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    pointer-events: none;
+}
+.answer .label {
+    font-size: large;
+    font-weight: bold;
+    pointer-events: none;
+}

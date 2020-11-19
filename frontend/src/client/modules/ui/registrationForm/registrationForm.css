@@ -1,0 +1,35 @@
+:host {
+    display: flex;
+    margin: 1rem auto;
+    flex-direction: column;
+    align-content: stretch;
+    width: 80%;
+    max-width: 400px;
+}
+
+button {
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+    line-height: 1.875rem;
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    transition: border 0.15s linear;
+    background-color: #2e5266;
+    color: #fff;
+    min-width: 8rem;
+}
+button:hover {
+    background-color: #416173;
+}
+button[disabled] {
+    background: #c9c7c5;
+    cursor: default;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}

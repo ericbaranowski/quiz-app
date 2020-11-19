@@ -1,0 +1,46 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "pozil",
+      "name": "Philippe Ozil",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5071767?v=4",
+      "profile": "https://pozil.github.io",
+      "contributions": [
+        "code",
+        "design",
+        "ideas",
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "mlezer-bd",
+      "name": "mlezer-bd",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/29126265?v=4",
+      "profile": "https://github.com/mlezer-bd",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "mhamzas",
+      "name": "M Hamza Siddiqui",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4003164?v=4",
+      "profile": "https://www.mhamza.com",
+      "contributions": [
+        "security"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "quiz-host-app",
+  "projectOwner": "fostive",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

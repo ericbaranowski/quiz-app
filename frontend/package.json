@@ -1,0 +1,57 @@
+{
+    "name": "quiz-player-app",
+    "description": "Multiplayer quiz app built on Salesforce technology (player app)",
+    "version": "2.0.0",
+    "private": true,
+    "author": "pozil",
+    "bugs": "https://github.com/fostive/quiz-player-app/issues",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "jsforce": "^1.9.3",
+        "lwc-services": "^1.3.12",
+        "normalize.css": "^8.0.1",
+        "ws": "^7.3.1"
+    },
+    "devDependencies": {
+        "eslint": "^7.8.0",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.13",
+        "prettier": "^2.1.1"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "homepage": "https://github.com/fostive/quiz-player-app",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "keywords": [
+        "lwc"
+    ],
+    "license": "CC0-1.0",
+    "lint-staged": {
+        "**/*.{css,html,js,json,md,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/modules/**/*.js": [
+            "eslint"
+        ]
+    },
+    "repository": "pozil/quiz",
+    "scripts": {
+        "start": "npm run build && node src/server/server.js",
+        "build": "lwc-services build -m production",
+        "build:development": "lwc-services build",
+        "lint": "eslint ./src/**/*.js",
+        "prettier": "prettier --write '**/*.{css,html,js,json,md,yaml,yml}'",
+        "prettier:verify": "prettier --list-different '**/*.{css,html,js,json,md,yaml,yml}'",
+        "test:unit": "lwc-services test:unit",
+        "test:unit:coverage": "lwc-services test:unit --coverage",
+        "test:unit:debug": "lwc-services test:unit --debug",
+        "test:unit:watch": "lwc-services test:unit --watch",
+        "preinstall": "rm -fr src/client/resources/dist",
+        "postinstall": "mkdir -p src/client/resources/dist && cp node_modules/normalize.css/normalize.css src/client/resources/dist/."
+    }
+}
